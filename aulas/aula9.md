@@ -107,10 +107,9 @@ from travel_agents import avaliador_viagem
 avaliar_relatorio = Task(
     description=(
         "Verifique se o relatório final contém: "
-        "(1) 3 destinos com custos, "
-        "(2) itinerário de 7 dias detalhado, "
-        "(3) conversão de moeda, "
-        "(4) tom envolvente. "
+        "(1) O destino com custos, "
+        "(2) Itinerário de 7 dias detalhado, "
+        "(3) Tom envolvente."
         "Se faltar algo, liste o que está ausente."
     ),
     expected_output="Lista do que está OK e do que está faltando.",
@@ -139,3 +138,82 @@ tasks = [pesquisar_destinos, planejar_itinerario, escrever_relatorio, avaliar_re
 4. **Monitore custos**: cada tarefa = chamadas ao LLM.
 5. **Nunca exponha chaves de API no código**: sempre use `.env`.
 6. **Documente seu fluxo**: quem faz o quê?
+
+---
+### ❓ Como imprimir os resultados do 3º e do 4º agentes?
+
+O método `kickoff()` **retorna apenas o resultado da última tarefa** da lista.  
+Ou seja:
+- Tarefa 1 → Pesquisador → resultado salvo internamente
+- Tarefa 2 → Planejador → resultado salvo internamente
+- Tarefa 3 → Escritor → resultado salvo internamente
+- Tarefa 4 → Avaliador → **este é o `result` que você imprime**
+
+O relatório do **3º agente não é perdido**, mas **não é retornado diretamente**.
+
+---
+
+### ✅ Solução: Acesse os resultados de **todas as tarefas** via `crew.tasks`
+
+Após executar `kickoff()`, cada tarefa tem seu resultado armazenado no atributo `.output`.
+
+#### 🔧 Código atualizado - `main.py`:
+
+```python
+from crewai import Crew
+from travel_agents import pesquisador_viagem, planejador_roteiros, escritor_viagens, avaliador_viagem
+from travel_tasks import pesquisar_destinos, planejar_itinerario, escrever_relatorio, avaliar_relatorio
+
+if __name__ == "__main__":
+    trip_crew = Crew(
+        agents=[pesquisador_viagem, planejador_roteiros, escritor_viagens, avaliador_viagem],
+        tasks=[pesquisar_destinos, planejar_itinerario, escrever_relatorio, avaliar_relatorio],
+        process='sequential',
+        verbose=True
+    )
+
+    # Executa a Crew
+    final_result = trip_crew.kickoff()
+
+    # Acessa os resultados individuais
+    relatorio_viagem = escrever_relatorio.output  # ← resultado do 3º agente
+    avaliacao = avaliar_relatorio.output          # ← resultado do 4º agente (igual a final_result)
+
+    print("\n" + "="*50)
+    print("📄 RELATÓRIO DE VIAGEM (3º agente)")
+    print("="*50)
+    print(relatorio_viagem)
+
+    print("\n" + "="*50)
+    print("🔍 AVALIAÇÃO DE QUALIDADE (4º agente)")
+    print("="*50)
+    print(avaliacao)
+```
+
+---
+
+### ✅ O que isso faz?
+
+- `escrever_relatorio.output` → contém **exatamente o que o Escritor gerou**.
+- `avaliar_relatorio.output` → contém **a avaliação do relatório** (e é igual a `final_result`).
+- Você vê **os dois resultados separadamente**, como deseja.
+
+> 💡 Isso funciona porque, após `kickoff()`, todas as tarefas já foram executadas e seus `.output` estão preenchidos.
+
+---
+
+### 📌 Dica extra: você também pode acessar por índice
+
+Se preferir:
+
+```python
+tasks = trip_crew.tasks
+relatorio_viagem = tasks[2].output  # 3ª tarefa (índice 2)
+avaliacao = tasks[3].output         # 4ª tarefa (índice 3)
+```
+
+Mas usar o nome da variável (`escrever_relatorio.output`) é mais legível.
+
+---
+
+Agora você consegue **ver e usar qualquer resultado intermediário** da sua Crew — essencial para depuração, logging ou integração com outros sistemas!
