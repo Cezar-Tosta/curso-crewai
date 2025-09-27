@@ -71,6 +71,35 @@ function addCopyButtons() {
     });
 }
 
+// Função para adicionar botão "Voltar ao Topo"
+function addBackToTopButton() {
+    const contentDiv = document.getElementById('lessonContent');
+    
+    // Verificar se já existe um botão
+    const existingButton = contentDiv.querySelector('.back-to-top-container');
+    if (existingButton) {
+        existingButton.remove();
+    }
+    
+    // Criar container do botão
+    const buttonContainer = document.createElement('div');
+    buttonContainer.className = 'back-to-top-container';
+    
+    // Criar botão
+    const backButton = document.createElement('button');
+    backButton.className = 'back-to-top';
+    backButton.innerHTML = '⬆️ Voltar ao Topo';
+    
+    // Adicionar evento de clique
+    backButton.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    
+    // Adicionar botão ao container e container ao conteúdo
+    buttonContainer.appendChild(backButton);
+    contentDiv.appendChild(buttonContainer);
+}
+
 // Função para carregar uma aula
 async function loadLesson(lessonNum, filename) {
     const contentDiv = document.getElementById('lessonContent');
@@ -85,6 +114,9 @@ async function loadLesson(lessonNum, filename) {
     // Adicionar botões de copiar
     addCopyButtons();
     
+    // Adicionar botão "Voltar ao Topo"
+    addBackToTopButton();
+    
     // Atualizar botão ativo
     document.querySelectorAll('.lesson-btn').forEach(btn => {
         btn.classList.remove('active');
@@ -92,7 +124,7 @@ async function loadLesson(lessonNum, filename) {
     document.querySelector(`[data-lesson="${lessonNum}"]`).classList.add('active');
     
     // Atualizar barra de progresso
-    const progress = (lessonNum / 5) * 100;
+    const progress = (lessonNum / 7) * 100;
     document.getElementById('progressBar').style.width = `${progress}%`;
     
     // Scroll suave para o topo
@@ -119,7 +151,7 @@ document.addEventListener('keydown', (e) => {
     const currentLesson = parseInt(currentBtn.getAttribute('data-lesson'));
     
     // Seta direita ou 'n' = próxima aula
-    if ((e.key === 'ArrowRight' || e.key === 'n') && currentLesson < 5) {
+    if ((e.key === 'ArrowRight' || e.key === 'n') && currentLesson < 7) {
         const nextBtn = document.querySelector(`[data-lesson="${currentLesson + 1}"]`);
         nextBtn.click();
     }

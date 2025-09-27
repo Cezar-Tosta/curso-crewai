@@ -492,6 +492,11 @@ table tr:nth-child(even) {
     .copy-button {
         font-size: 0.8em;
     }
+
+    .back-to-top {
+        padding: 10px 20px;
+        font-size: 0.95em;
+    }
 }
 
 /* Scrollbar */
@@ -510,4 +515,34 @@ table tr:nth-child(even) {
 
 ::-webkit-scrollbar-thumb:hover {
     background: var(--light-blue);
+}
+
+/* Back to Top Button */
+.back-to-top {
+    display: inline-block;
+    background: var(--light-blue);
+    color: var(--dark-bg);
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1em;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: none;
+}
+
+.back-to-top:hover {
+    background: var(--text-primary);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 212, 255, 0.3);
+}
+
+.back-to-top-container {
+    text-align: center;
+    padding: 20px 0;
+    border-top: 1px solid var(--border-color);
+    margin-top: 40px;
 }
