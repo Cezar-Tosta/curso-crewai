@@ -387,4 +387,7 @@ allow_origins=["https://meusite.com", "https://app.meusite.com"]
 | -------- | ------------------------------------------------------ |
 | Sem CORS | Frontend não consegue chamar a API → `Failed to fetch` |
 | Com CORS | Frontend consegue chamar a API → ✅ Sucesso             |
+
+---
+
 CORS é uma **camada de segurança do navegador**, não da API. A API pode estar funcionando, mas o navegador **não permite** que seu frontend a acesse, **a menos que a API diga explicitamente que é permitido**.
