@@ -124,7 +124,7 @@ async function loadLesson(lessonNum, filename) {
     document.querySelector(`[data-lesson="${lessonNum}"]`).classList.add('active');
     
     // Atualizar barra de progresso
-    const progress = (lessonNum / 10) * 100;
+    const progress = (lessonNum / 11) * 100;
     document.getElementById('progressBar').style.width = `${progress}%`;
     
     // Scroll suave para o topo
@@ -151,7 +151,7 @@ document.addEventListener('keydown', (e) => {
     const currentLesson = parseInt(currentBtn.getAttribute('data-lesson'));
     
     // Seta direita ou 'n' = próxima aula
-    if ((e.key === 'ArrowRight' || e.key === 'n') && currentLesson < 10) {
+    if ((e.key === 'ArrowRight' || e.key === 'n') && currentLesson < 11) {
         const nextBtn = document.querySelector(`[data-lesson="${currentLesson + 1}"]`);
         nextBtn.click();
     }
