@@ -1,0 +1,447 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    overflow-x: hidden;
+}
+
+:root {
+    --dark-bg: #1a1a1a;
+    --medium-dark: #2a2a2a;
+    --light-dark: #3a3a3a;
+    --darker-gray: #252525;
+    --border-color: #4a4a4a;
+    --light-border: #5a5a5a;
+    --light-blue: #00d4ff;
+    --text-primary: #e0e0e0;
+    --text-secondary: #a0a0a0;
+    --text-tertiary: #707070;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, var(--dark-bg) 0%, #252525 100%);
+    color: var(--text-primary);
+    line-height: 1.6;
+    min-height: 100vh;
+    overflow-x: hidden;
+    width: 100%;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 30px;
+    width: 100%;
+}
+
+/* Header */
+header {
+    background: var(--medium-dark);
+    border-bottom: 2px solid var(--border-color);
+    padding: 25px 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    width: 100%;
+}
+
+header h1 {
+    text-align: center;
+    font-size: 2.5em;
+    color: var(--text-primary);
+    word-wrap: break-word;
+}
+
+header p {
+    text-align: center;
+    color: var(--text-secondary);
+    margin-top: 10px;
+    padding: 0 20px;
+}
+
+/* Sidebar Navigation */
+.sidebar {
+    background: var(--medium-dark);
+    border-radius: 12px;
+    padding: 25px;
+    height: fit-content;
+    position: sticky;
+    top: 20px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+.sidebar h2 {
+    color: var(--text-primary);
+    margin-bottom: 20px;
+    font-size: 1.3em;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 10px;
+}
+
+.lesson-btn {
+    width: 100%;
+    background: var(--light-dark);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    padding: 15px;
+    margin: 8px 0;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: left;
+    font-size: 0.95em;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.lesson-btn:hover {
+    background: var(--border-color);
+    border-color: var(--light-blue);
+    transform: translateX(5px);
+}
+
+.lesson-btn.active {
+    background: var(--light-blue);
+    color: var(--dark-bg);
+    font-weight: 600;
+    border: none;
+}
+
+.lesson-number {
+    background: var(--darker-gray);
+    color: var(--text-primary);
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 0.9em;
+}
+
+.lesson-btn.active .lesson-number {
+    background: var(--dark-bg);
+    color: var(--text-primary);
+}
+
+/* Main Content */
+.content {
+    background: var(--medium-dark);
+    border-radius: 12px;
+    padding: 40px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    min-height: 500px;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    word-wrap: break-word;
+}
+
+.loading {
+    text-align: center;
+    color: var(--text-secondary);
+    padding: 50px;
+    font-size: 1.2em;
+}
+
+.content h1 {
+    color: var(--text-primary);
+    font-size: 2.2em;
+    margin-bottom: 15px;
+    border-bottom: 3px solid var(--light-blue);
+    padding-bottom: 15px;
+}
+
+.content h2 {
+    color: var(--text-primary);
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-size: 1.6em;
+}
+
+.content h3 {
+    color: var(--text-secondary);
+    margin-top: 25px;
+    margin-bottom: 12px;
+    font-size: 1.3em;
+}
+
+.content h4 {
+    color: var(--text-secondary);
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.content p {
+    margin-bottom: 15px;
+    color: var(--text-primary);
+}
+
+.content ul, .content ol {
+    margin-left: 25px;
+    margin-bottom: 15px;
+}
+
+.content li {
+    margin-bottom: 8px;
+    color: var(--text-primary);
+}
+
+.content strong {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.content em {
+    color: var(--text-secondary);
+}
+
+/* Code blocks */
+.code-container {
+    position: relative;
+    margin: 20px 0;
+    width: 100%;
+    max-width: 100%;
+}
+
+.copy-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: var(--light-blue);
+    color: var(--dark-bg);
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.85em;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.copy-button:hover {
+    background: var(--text-primary);
+    transform: scale(1.05);
+}
+
+.copy-button.copied {
+    background: #4caf50;
+}
+
+pre {
+    background: var(--dark-bg);
+    border: 1px solid var(--border-color);
+    border-left: 4px solid var(--light-blue);
+    border-radius: 8px;
+    padding: 20px;
+    padding-top: 45px;
+    overflow-x: auto;
+    margin: 0;
+    width: 100%;
+    max-width: 100%;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+code {
+    color: var(--light-blue);
+    font-family: 'Courier New', monospace;
+    font-size: 0.9em;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+}
+
+pre code {
+    color: var(--text-primary);
+    display: block;
+    overflow-wrap: break-word;
+}
+
+p code, li code {
+    background: var(--light-dark);
+    padding: 2px 6px;
+    border-radius: 3px;
+    color: var(--light-blue);
+    word-break: break-word;
+}
+
+/* Blockquotes (for notes, tips, etc) */
+blockquote {
+    background: var(--light-dark);
+    border-left: 4px solid var(--light-blue);
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+}
+
+blockquote p {
+    margin: 0;
+}
+
+/* Progress bar */
+.progress-bar {
+    background: var(--light-dark);
+    height: 8px;
+    border-radius: 10px;
+    margin: 20px 0;
+    overflow: hidden;
+}
+
+.progress-fill {
+    background: var(--light-blue);
+    height: 100%;
+    width: 0%;
+    transition: width 0.5s ease;
+}
+
+/* Links */
+a {
+    color: var(--light-blue);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: var(--text-primary);
+    text-decoration: underline;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    max-width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    overflow-x: auto;
+    display: block;
+}
+
+table th {
+    background: var(--light-dark);
+    color: var(--text-primary);
+    padding: 12px;
+    text-align: left;
+    border: 1px solid var(--border-color);
+    word-wrap: break-word;
+}
+
+table td {
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    word-wrap: break-word;
+}
+
+table tr:nth-child(even) {
+    background: var(--light-dark);
+}
+
+/* Responsive */
+@media (max-width: 968px) {
+    .container {
+        grid-template-columns: 1fr;
+        padding: 15px;
+        gap: 20px;
+    }
+
+    .sidebar {
+        position: relative;
+        top: 0;
+    }
+
+    header h1 {
+        font-size: 1.8em;
+    }
+
+    header p {
+        font-size: 0.9em;
+    }
+
+    .content {
+        padding: 25px 20px;
+    }
+
+    .content h1 {
+        font-size: 1.8em;
+    }
+
+    .content h2 {
+        font-size: 1.4em;
+    }
+
+    .content h3 {
+        font-size: 1.2em;
+    }
+
+    pre {
+        font-size: 0.85em;
+        padding: 15px;
+        padding-top: 40px;
+    }
+
+    .copy-button {
+        padding: 6px 12px;
+        font-size: 0.8em;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.5em;
+    }
+
+    header p {
+        font-size: 0.85em;
+    }
+
+    .container {
+        padding: 10px;
+    }
+
+    .content {
+        padding: 20px 15px;
+    }
+
+    .content h1 {
+        font-size: 1.5em;
+    }
+
+    .content h2 {
+        font-size: 1.3em;
+    }
+
+    .lesson-btn {
+        padding: 12px;
+        font-size: 0.9em;
+    }
+
+    pre {
+        font-size: 0.8em;
+        padding: 12px;
+        padding-top: 38px;
+    }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--dark-bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--light-blue);
+}

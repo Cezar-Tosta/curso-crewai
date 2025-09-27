@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Curso crewAI - Assistente de Viagem Inteligente</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>🚀 Curso crewAI</h1>
+        <p>Assistente de Viagem Inteligente com Múltiplos Agentes</p>
+    </header>
+
+    <div class="container">
+        <aside class="sidebar">
+            <h2>📚 Índice do Curso</h2>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressBar"></div>
+            </div>
+            <button class="lesson-btn active" data-lesson="1" data-file="./aulas/aula1.md">
+                <span class="lesson-number">01</span>
+                Introdução ao crewAI
+            </button>
+            <button class="lesson-btn" data-lesson="2" data-file="./aulas/aula2.md">
+                <span class="lesson-number">02</span>
+                Primeiro Agente
+            </button>
+            <button class="lesson-btn" data-lesson="3" data-file="./aulas/aula3.md">
+                <span class="lesson-number">03</span>
+                Criando Tarefas
+            </button>
+            <button class="lesson-btn" data-lesson="4" data-file="./aulas/aula4.md">
+                <span class="lesson-number">04</span>
+                Executando uma Crew
+            </button>
+            <button class="lesson-btn" data-lesson="5" data-file="./aulas/aula5.md">
+                <span class="lesson-number">05</span>
+                Múltiplos Agentes
+            </button>
+            <button class="lesson-btn" data-lesson="5" data-file="./aulas/aula6.md">
+                <span class="lesson-number">(...)</span>
+                (Aguarde...)
+            </button>
+        </aside>
+
+        <main class="content" id="lessonContent">
+            <div class="loading">Carregando conteúdo...</div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
