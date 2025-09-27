@@ -1,10 +1,9 @@
-# 🧠 **Aula 4: Criando e Executando uma Crew**
+# 🧠 **Criando e Executando uma Crew**
 
 ---
-
 ## 📚 **Teoria**
 
-### O que é uma **Crew** no crewAI?
+### O que é uma **Crew** no CrewAI?
 Uma **Crew** é o "orquestrador" da sua equipe de IA. Ela:
 - Reúne **agentes** e **tarefas**,
 - Define **como os agentes colaboram** (`process`),
@@ -37,7 +36,6 @@ print(resultado)
 > 🚀 O método `kickoff()` **executa todas as tarefas** e retorna o resultado da **última tarefa**.
 
 ---
-
 ## 💻 **Exercícios**
 
 1. Qual método é usado para **executar** uma Crew?  
@@ -47,8 +45,9 @@ print(resultado)
 > **Gabarito**  
 > 1. `kickoff()`  
 > 2. `sequential`  
-> 3. O crewAI lançará um erro (`ValueError`) — você precisa de pelo menos um agente e uma tarefa.
+> 3. O CrewAI lançará um erro (`ValueError`) — você precisa de pelo menos um agente e uma tarefa.
 
+---
 ## 📌 **Resumo**
 
 - A **Crew** é o núcleo executável da sua equipe de IA.
@@ -58,7 +57,6 @@ print(resultado)
 - `verbose=True` na Crew mostra **todo o fluxo de execução** no terminal.
 
 ---
-
 ## 🌍 **Exemplo Real**
 
 Uma agência de notícias usa uma Crew para gerar artigos diários:
@@ -74,7 +72,6 @@ artigo = noticias_crew.kickoff()
 Resultado: um artigo pronto em minutos, sem intervenção humana.
 
 ---
-
 ## 🛠️ **Projeto Contínuo: "Assistente de Viagem Inteligente"**
 
 ### ✅ Tarefa da Aula 4:
@@ -106,9 +103,10 @@ if __name__ == "__main__":
     )
 
     result = trip_crew.kickoff()
-    print(f"\n\n{'='*30}")
+    print("\n")
+    print("=" * 30)
     print("===== Resultado Final =====")
-    print(f"{'='*30}")
+    print("=" * 30)
     print(result)
 ```
 
@@ -122,8 +120,6 @@ python main.py
 Você verá:
 - O agente "pensando" (graças ao `verbose=True`),
 - A resposta final com os 3 destinos, custos, meses ideais e atrações.
-
-Ótimas perguntas! Vamos por partes:
 
 ---
 ### 🔹 **1. O que significa `if __name__ == "__main__":`?**
@@ -162,7 +158,6 @@ if __name__ == "__main__":
 > ✅ **Resumo**: é uma "porta de entrada segura" para executar código só quando você quer.
 
 ---
-
 ### 🔹 **2. O que acontece se eu colocar `tasks` antes de `agents` na Crew?**
 
 **Nada de errado acontece!** 🎉
@@ -199,10 +194,9 @@ Exemplo **errado/perigoso**:
 Crew([pesquisador_viagem], [pesquisar_destinos])  # ❌ Ordem posicional — frágil e confuso
 ```
 
-O código oficial do crewAI **espera argumentos nomeados**, então **sempre use `agents=...` e `tasks=...`** — e aí a ordem não importa.
+O código oficial do CrewAI **espera argumentos nomeados**, então **sempre use `agents=...` e `tasks=...`** — e aí a ordem não importa.
 
 ---
-
 ### ✅ Conclusão
 
 - `if __name__ == "__main__":` → executa só quando o arquivo é o **script principal**.

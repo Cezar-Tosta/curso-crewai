@@ -1,10 +1,9 @@
-# 🧠 **Aula 3: Criando Tarefas e Atribuindo a Agentes**
+# 🧠 **Criando Tarefas e Atribuindo a Agentes**
 
 ---
-
 ## 📚 **Teoria**
 
-### O que é uma **Tarefa** (*Task*) no crewAI?
+### O que é uma **Tarefa** (*Task*) no CrewAI?
 Uma **tarefa** é uma unidade de trabalho que um agente deve executar. Ela define:
 - **O que fazer** (`description`),
 - **Qual o resultado esperado** (`expected_output`),
@@ -30,7 +29,6 @@ tarefa_pesquisa = Task(
 > - `expected_output` orienta o LLM sobre o **formato e conteúdo** do resultado. Isso melhora muito a qualidade da resposta!
 
 ---
-
 ## 💻 **Exercícios**
 
 1. Qual atributo da tarefa diz **quem deve executá-la**?  
@@ -50,7 +48,6 @@ tarefa_pesquisa = Task(
 >    ```
 
 ---
-
 ## 📌 **Resumo**
 
 - Toda tarefa precisa de: `description`, `expected_output` e `agent`.
@@ -59,17 +56,15 @@ tarefa_pesquisa = Task(
 - Tarefas **não são executadas sozinhas** — precisam ser agrupadas em uma **Crew** (próxima aula!).
 
 ---
-
 ## 🌍 **Exemplo Real**
 
-Uma startup de educação usa crewAI para criar planos de estudo:
+Uma startup de educação usa CrewAI para criar planos de estudo:
 - **Tarefa 1**: "Pesquise os tópicos mais cobrados no ENEM em matemática." → atribuída ao *Agente Pesquisador*.
 - **Tarefa 2**: "Monte um cronograma de 30 dias com exercícios e revisões." → atribuída ao *Agente Planejador*.
 
 Cada tarefa tem uma `expected_output` clara (ex: "lista com 10 tópicos" ou "tabela com dias e temas"), garantindo resultados úteis.
 
 ---
-
 ## 🛠️ **Projeto Contínuo: "Assistente de Viagem Inteligente"**
 
 ### ✅ Tarefa da Aula 3:

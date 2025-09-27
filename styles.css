@@ -25,10 +25,14 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: linear-gradient(135deg, var(--dark-bg) 0%, #252525 100%);
     color: var(--text-primary);
-    line-height: 1.6;
+    line-height: 1.7;
     min-height: 100vh;
     overflow-x: hidden;
     width: 100%;
+    font-size: 16px;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .container {
@@ -56,6 +60,7 @@ header h1 {
     font-size: 2.5em;
     color: var(--text-primary);
     word-wrap: break-word;
+    font-weight: 600;
 }
 
 header p {
@@ -63,6 +68,8 @@ header p {
     color: var(--text-secondary);
     margin-top: 10px;
     padding: 0 20px;
+    font-size: 1.05em;
+    font-weight: 400;
 }
 
 /* Sidebar Navigation */
@@ -80,9 +87,10 @@ header p {
 .sidebar h2 {
     color: var(--text-primary);
     margin-bottom: 20px;
-    font-size: 1.3em;
+    font-size: 1.35em;
     border-bottom: 2px solid var(--border-color);
     padding-bottom: 10px;
+    font-weight: 600;
 }
 
 .lesson-btn {
@@ -96,10 +104,11 @@ header p {
     cursor: pointer;
     transition: all 0.3s ease;
     text-align: left;
-    font-size: 0.95em;
+    font-size: 1em;
     display: flex;
     align-items: center;
     gap: 10px;
+    font-weight: 500;
 }
 
 .lesson-btn:hover {
@@ -120,8 +129,8 @@ header p {
     color: var(--text-primary);
     padding: 5px 10px;
     border-radius: 5px;
-    font-weight: bold;
-    font-size: 0.9em;
+    font-weight: 700;
+    font-size: 0.95em;
 }
 
 .lesson-btn.active .lesson-number {
@@ -147,40 +156,48 @@ header p {
     text-align: center;
     color: var(--text-secondary);
     padding: 50px;
-    font-size: 1.2em;
+    font-size: 1.25em;
+    font-weight: 500;
 }
 
 .content h1 {
     color: var(--text-primary);
-    font-size: 2.2em;
+    font-size: 2.3em;
     margin-bottom: 15px;
     border-bottom: 3px solid var(--light-blue);
     padding-bottom: 15px;
+    font-weight: 600;
 }
 
 .content h2 {
     color: var(--text-primary);
     margin-top: 30px;
     margin-bottom: 15px;
-    font-size: 1.6em;
+    font-size: 1.75em;
+    font-weight: 600;
 }
 
 .content h3 {
     color: var(--text-secondary);
     margin-top: 25px;
     margin-bottom: 12px;
-    font-size: 1.3em;
+    font-size: 1.4em;
+    font-weight: 600;
 }
 
 .content h4 {
     color: var(--text-secondary);
     margin-top: 20px;
     margin-bottom: 10px;
+    font-size: 1.2em;
+    font-weight: 600;
 }
 
 .content p {
     margin-bottom: 15px;
     color: var(--text-primary);
+    font-size: 1.05em;
+    line-height: 1.8;
 }
 
 .content ul, .content ol {
@@ -189,8 +206,10 @@ header p {
 }
 
 .content li {
-    margin-bottom: 8px;
+    margin-bottom: 10px;
     color: var(--text-primary);
+    font-size: 1.05em;
+    line-height: 1.7;
 }
 
 .content strong {
@@ -220,7 +239,7 @@ header p {
     padding: 8px 16px;
     border-radius: 6px;
     cursor: pointer;
-    font-size: 0.85em;
+    font-size: 0.9em;
     font-weight: 600;
     transition: all 0.3s ease;
     z-index: 10;
@@ -252,24 +271,30 @@ pre {
 
 code {
     color: var(--light-blue);
-    font-family: 'Courier New', monospace;
-    font-size: 0.9em;
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+    font-size: 0.95em;
     word-wrap: break-word;
     white-space: pre-wrap;
+    font-weight: 500;
+    letter-spacing: 0.3px;
 }
 
 pre code {
     color: var(--text-primary);
     display: block;
     overflow-wrap: break-word;
+    font-size: 1em;
+    line-height: 1.6;
 }
 
 p code, li code {
     background: var(--light-dark);
-    padding: 2px 6px;
-    border-radius: 3px;
+    padding: 3px 7px;
+    border-radius: 4px;
     color: var(--light-blue);
     word-break: break-word;
+    font-size: 0.95em;
+    font-weight: 500;
 }
 
 /* Blockquotes (for notes, tips, etc) */
@@ -279,6 +304,8 @@ blockquote {
     padding: 20px;
     margin: 20px 0;
     border-radius: 8px;
+    font-size: 1.05em;
+    line-height: 1.7;
 }
 
 blockquote p {
@@ -330,12 +357,15 @@ table th {
     text-align: left;
     border: 1px solid var(--border-color);
     word-wrap: break-word;
+    font-weight: 600;
+    font-size: 1.05em;
 }
 
 table td {
     padding: 10px;
     border: 1px solid var(--border-color);
     word-wrap: break-word;
+    font-size: 1.02em;
 }
 
 table tr:nth-child(even) {
@@ -344,6 +374,10 @@ table tr:nth-child(even) {
 
 /* Responsive */
 @media (max-width: 968px) {
+    body {
+        font-size: 16px;
+    }
+
     .container {
         grid-template-columns: 1fr;
         padding: 15px;
@@ -356,11 +390,11 @@ table tr:nth-child(even) {
     }
 
     header h1 {
-        font-size: 1.8em;
+        font-size: 2em;
     }
 
     header p {
-        font-size: 0.9em;
+        font-size: 1em;
     }
 
     .content {
@@ -368,36 +402,52 @@ table tr:nth-child(even) {
     }
 
     .content h1 {
-        font-size: 1.8em;
+        font-size: 2em;
     }
 
     .content h2 {
-        font-size: 1.4em;
+        font-size: 1.6em;
     }
 
     .content h3 {
-        font-size: 1.2em;
+        font-size: 1.35em;
+    }
+
+    .content h4 {
+        font-size: 1.15em;
+    }
+
+    .content p, .content li {
+        font-size: 1.05em;
     }
 
     pre {
-        font-size: 0.85em;
+        font-size: 0.9em;
         padding: 15px;
         padding-top: 40px;
     }
 
+    pre code {
+        font-size: 0.95em;
+    }
+
     .copy-button {
-        padding: 6px 12px;
-        font-size: 0.8em;
+        padding: 7px 14px;
+        font-size: 0.85em;
     }
 }
 
 @media (max-width: 480px) {
+    body {
+        font-size: 15px;
+    }
+
     header h1 {
-        font-size: 1.5em;
+        font-size: 1.7em;
     }
 
     header p {
-        font-size: 0.85em;
+        font-size: 0.95em;
     }
 
     .container {
@@ -409,22 +459,38 @@ table tr:nth-child(even) {
     }
 
     .content h1 {
-        font-size: 1.5em;
+        font-size: 1.7em;
     }
 
     .content h2 {
-        font-size: 1.3em;
+        font-size: 1.45em;
+    }
+
+    .content h3 {
+        font-size: 1.25em;
+    }
+
+    .content p, .content li {
+        font-size: 1.02em;
     }
 
     .lesson-btn {
         padding: 12px;
-        font-size: 0.9em;
+        font-size: 0.95em;
     }
 
     pre {
-        font-size: 0.8em;
+        font-size: 0.88em;
         padding: 12px;
         padding-top: 38px;
+    }
+
+    pre code {
+        font-size: 0.92em;
+    }
+
+    .copy-button {
+        font-size: 0.8em;
     }
 }
 

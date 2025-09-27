@@ -1,19 +1,18 @@
-# 🧠 **Aula 2: Criando Seu Primeiro Agente com crewAI**
+# 🧠 **Criando Seu Primeiro Agente com CrewAI**
 
 ---
-
 ## 📚 **Teoria**
 
-### O que é um **Agente** no crewAI?
+### O que é um **Agente** no CrewAI?
 Um **agente** é uma entidade autônoma com:
 - Um **papel** (*role*): sua função na equipe (ex: "Pesquisador de Viagens").
 - Um **objetivo** (*goal*): o que ele deve alcançar (ex: "Encontrar os melhores destinos com base no orçamento do usuário").
 - Uma **backstory** (*backstory*): contexto que explica sua expertise (ex: "Você é um especialista em turismo com 10 anos de experiência...").
 
-Além disso, um agente pode usar **ferramentas** (como busca na web, cálculos, APIs) e possui um **LLM** (modelo de linguagem) associado — por padrão, o crewAI usa o modelo da OpenAI (GPT-3.5/4) se você tiver a chave configurada.
+Além disso, um agente pode usar **ferramentas** (como busca na web, cálculos, APIs) e possui um **LLM** (modelo de linguagem) associado — por padrão, o CrewAI usa o modelo da OpenAI (GPT-3.5/4) se você tiver a chave configurada.
 
 ### Como criar um agente?
-Usando a classe `Agent` do crewAI:
+Usando a classe `Agent` do CrewAI:
 
 ```python
 from crewai import Agent
@@ -29,7 +28,6 @@ pesquisador = Agent(
 > **Dica**: `verbose=True` é ótimo para depuração e aprendizado!
 
 ---
-
 ## 💻 **Exercícios**
 
 1. Qual atributo define **o que o agente deve alcançar**?  
@@ -49,13 +47,6 @@ pesquisador = Agent(
 >    ```
 
 ---
-
-## 🔗 **Link Útil**
-
-- [Documentação: Agents](https://docs.crewai.com/core-concepts/Agents)
-
----
-
 ## 📌 **Resumo**
 
 - Um **agente** tem `role`, `goal` e `backstory`.
@@ -64,7 +55,6 @@ pesquisador = Agent(
 - O LLM é configurado automaticamente se você tiver `OPENAI_API_KEY` no `.env`.
 
 ---
-
 ## 🌍 **Exemplo Real**
 
 Uma empresa de turismo usa um agente chamado **"Agente de Recomendação Personalizada"** que:
@@ -75,7 +65,6 @@ Uma empresa de turismo usa um agente chamado **"Agente de Recomendação Persona
 Esse agente é o **primeiro contato** do sistema com o usuário — tudo automatizado, mas com tom empático e profissional.
 
 ---
-
 ## 🛠️ **Projeto Contínuo: "Assistente de Viagem Inteligente"**
 
 ### ✅ Tarefa da Aula 2:

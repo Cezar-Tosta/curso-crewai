@@ -1,12 +1,11 @@
 
-# 🧠 **Aula 1: Introdução ao crewAI e Configuração do Ambiente**
+# 🧠 **Introdução ao CrewAI e Configuração do Ambiente**
 
 ---
-
 ## 📚 **Teoria**
 
-### O que é crewAI?
-**crewAI** é uma biblioteca Python de código aberto que permite criar **equipes de agentes de IA autônomos** que colaboram para resolver tarefas complexas. Inspirada na arquitetura de equipes humanas, ela permite definir:
+### O que é CrewAI?
+**CrewAI** é uma biblioteca Python de código aberto que permite criar **equipes de agentes de IA autônomos** que colaboram para resolver tarefas complexas. Inspirada na arquitetura de equipes humanas, ela permite definir:
 
 - **Agentes** (com papéis, objetivos e ferramentas),
 - **Tarefas** (com descrições, expectativas e responsáveis),
@@ -14,41 +13,34 @@
 
 O objetivo é **automatizar fluxos de trabalho inteligentes** com múltiplos agentes especializados, como um "time de IA".
 
-### Por que usar crewAI?
+### Por que usar CrewAI?
 - **Modularidade**: cada agente tem um papel bem definido.
 - **Colaboração**: agentes se comunicam e delegam tarefas.
 - **Extensibilidade**: integra com LLMs (como OpenAI, Anthropic, Ollama) e ferramentas externas.
 - **Simplicidade**: sintaxe clara e intuitiva em Python.
 
 ---
-
 ## 💻 **Exercícios**
 
-1. **O que diferencia crewAI de outras bibliotecas de agentes (como LangChain ou AutoGen)?**  
-2. Liste os **três componentes principais** de uma equipe em crewAI.  
-3. Qual é o papel do **"process"** em uma equipe do crewAI?
+1. **O que diferencia CrewAI de outras bibliotecas de agentes (como LangChain ou AutoGen)?**  
+2. Liste os **três componentes principais** de uma equipe em CrewAI.  
+3. Qual é o papel do **"process"** em uma equipe do CrewAI?
 
-> **Gabarito ao final da aula.**
-
----
-
-## 🔗 **Links Úteis**
-
-- [Documentação oficial do crewAI](https://docs.crewai.com/)
-- [Repositório no GitHub](https://github.com/joaomdmoura/crewAI)
-- [Instalação via pip](https://pypi.org/project/crewai/)
+> ✅ **Gabarito dos Exercícios**
+>
+>1. **Diferencial do CrewAI**: Foco em **equipes colaborativas de agentes com papéis bem definidos**, enquanto LangChain é mais genérico (cadeias de prompts) e AutoGen exige mais configuração manual de interações.
+>2. **Três componentes**: Agentes (Agents), Tarefas (Tasks) e Processos (Processes).
+>3. **Papel do "process"**: Define **como os agentes interagem** — por exemplo, se as tarefas são executadas em sequência (`sequential`) ou com delegação dinâmica (`hierarchical`).
 
 ---
-
 ## 📌 **Resumo**
 
-- crewAI permite criar **equipes de agentes de IA** que colaboram.
+- CrewAI permite criar **equipes de agentes de IA** que colaboram.
 - Três elementos-chave: **Agentes**, **Tarefas** e **Processos**.
 - É uma abordagem orientada a **papéis e responsabilidades**, como em times humanos.
 - Funciona com qualquer LLM compatível com LangChain.
 
 ---
-
 ## 🌍 **Exemplo Real**
 
 Imagine uma **startup de marketing digital** que precisa:
@@ -56,7 +48,7 @@ Imagine uma **startup de marketing digital** que precisa:
 - Criar conteúdo para redes sociais,
 - Analisar métricas de engajamento.
 
-Com crewAI, você pode criar:
+Com CrewAI, você pode criar:
 - Um **Agente Pesquisador** (coleta dados),
 - Um **Agente Criativo** (escreve posts),
 - Um **Agente Analista** (avalia desempenho).
@@ -64,10 +56,9 @@ Com crewAI, você pode criar:
 Eles trabalham em sequência ou em paralelo, formando um **fluxo automatizado de produção de conteúdo**.
 
 ---
-
 ## 🛠️ **Projeto Contínuo: "Assistente de Viagem Inteligente"**
 
-Ao longo do curso, vamos construir um **sistema de planejamento de viagens** usando crewAI. Ele será composto por:
+Ao longo do curso, vamos construir um **sistema de planejamento de viagens** usando CrewAI. Ele será composto por:
 
 - **Agente Pesquisador**: encontra destinos, preços de voos e hotéis.
 - **Agente Planejador**: monta um itinerário diário.
@@ -84,7 +75,7 @@ Na **Aula 1**, sua tarefa é apenas **configurar o ambiente** para esse projeto.
    # ou
    crewai-env\Scripts\activate     # Windows
    ```
-3. Instale o crewAI:
+3. Instale o CrewAI:
    ```bash
    pip install crewai
    ```
@@ -98,10 +89,3 @@ Na **Aula 1**, sua tarefa é apenas **configurar o ambiente** para esse projeto.
 > OPENAI_API_KEY=sua_chave_aqui
 > ```
 
----
-
-## ✅ **Gabarito dos Exercícios**
-
-1. **Diferencial do crewAI**: Foco em **equipes colaborativas de agentes com papéis bem definidos**, enquanto LangChain é mais genérico (cadeias de prompts) e AutoGen exige mais configuração manual de interações.
-2. **Três componentes**: Agentes (Agents), Tarefas (Tasks) e Processos (Processes).
-3. **Papel do "process"**: Define **como os agentes interagem** — por exemplo, se as tarefas são executadas em sequência (`sequential`) ou com delegação dinâmica (`hierarchical`).
