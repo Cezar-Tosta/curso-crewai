@@ -1,5 +1,5 @@
 
-# **Problema no PDF e Melhora no CSS**
+# 🧠 **Problema no PDF e Melhora no CSS**
 
 ## 🙁 Problema:
 Atualmente, ao clicar em **"Exportar PDF"**, o frontend faz uma **nova requisição para a API**, que **executa novamente todos os agentes** (pesquisa, planejamento, escrita, avaliação), **só para gerar o PDF**.
