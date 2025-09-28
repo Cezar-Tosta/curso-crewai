@@ -297,7 +297,6 @@ document.getElementById('export-pdf-btn').addEventListener('click', async () => 
     </style>
     <!-- Bibliotecas para PDF -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
 <body>
 
@@ -417,7 +416,7 @@ document.getElementById('export-pdf-btn').addEventListener('click', async () => 
             }
         });
 
-        // Botão de exportar PDF (gera localmente)
+        // Botão de exportar PDF (gera localmente, com quebra de páginas)
         document.getElementById('export-pdf-btn').addEventListener('click', () => {
             if (!document.getElementById('relatorio').textContent) {
                 alert('Por favor, gere um relatório primeiro.');
@@ -435,9 +434,23 @@ document.getElementById('export-pdf-btn').addEventListener('click', async () => 
             doc.setFontSize(12);
             doc.text(`Itinerário para ${dias} dias com orçamento de US$${orcamento}`, 10, 20);
 
-            // Adiciona o conteúdo do relatório (com quebra de linha)
-            const lines = doc.splitTextToSize(relatorio, 180);
-            doc.text(lines, 10, 30);
+            // Configuração para quebra de linhas e páginas
+            const pageHeight = doc.internal.pageSize.height;
+            const pageWidth = doc.internal.pageSize.width;
+            const margin = 10;
+            let yPosition = 30; // posição vertical inicial após os títulos
+
+            // Divide o texto em linhas
+            const lines = doc.splitTextToSize(relatorio, pageWidth - 2 * margin);
+
+            lines.forEach((line) => {
+                if (yPosition > pageHeight - 20) { // Se estiver perto do final da página
+                    doc.addPage(); // Adiciona nova página
+                    yPosition = 10; // Reinicia a posição vertical
+                }
+                doc.text(line, margin, yPosition);
+                yPosition += 7; // Incrementa a posição vertical (altura da linha)
+            });
 
             doc.save(`relatorio_viagem_${dias}dias.pdf`);
         });
